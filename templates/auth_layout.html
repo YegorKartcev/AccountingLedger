@@ -1,0 +1,77 @@
+{% extends "base.html" %}
+{% block style %}
+<style>
+    html, body {
+        height: 100%;
+        font-family: "Playfair Display", serif;
+    }
+    .auth-box {
+        border: 3px solid lightgrey;
+        border-radius: 10px;
+        padding-top: 25px;
+        padding-bottom: 25px;
+
+        margin: auto;
+    }
+    .login-form-container {
+        margin: auto;
+    }
+
+    .registration-form-container {
+        margin: auto;
+    }
+    .outer-area {
+        margin-top: 100px;
+        margin-bottom: 100px;
+    }
+
+    .bounce-enter-active {
+        animation: bounce-in 1.0s;
+    }
+    .bounce-leave-active {
+        animation: bounce-in 1.0s reverse;
+    }
+    @keyframes bounce-in {
+        0% {
+        transform: scale(0);
+        }
+        100% {
+        transform: scale(1);
+        }
+    }
+
+
+</style>
+{% endblock %}
+
+{% block content %}
+<div id="appLog">
+    <transition name="bounce" apper mode="out-in">
+        <div class="row justify-content-center" v-show="!loading">
+            <div class="outer-area col-10 col-sm-10 col-md-8 col-lg-6 col-xl-4 text-center">
+                <div class="auth-box px-5 text-center">
+                    {% block auth %}
+                    {% endblock %}
+                </div>
+            </div>
+        </div>
+    </transition>            
+</div>
+<script>
+    var appLog = new Vue({
+      delimiters: ['[[', ']]'],
+      el: '#appLog',
+      data: {
+          loading: true
+      },
+      mounted() {
+        this.loading = !this.loading
+      }
+    });
+  </script>
+{% endblock %}
+
+
+{% block js %}
+
+{% endblock js %} 
