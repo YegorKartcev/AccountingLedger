@@ -4,6 +4,7 @@ Django+Vue.js website. General idea - a ledger book to mark incomes and expendit
 
 Demo:
 https://yogayogurtyegor.pythonanywhere.com/
+
 username: testUser
 password: !TestPassword
 
